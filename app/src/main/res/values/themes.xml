@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Mobilki" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="Widget.Mobilki.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Theme.Mobilki" parent="Base.Theme.Mobilki">
+        <item name="bottomNavigationStyle">@style/Widget.Mobilki.BottomNavigationView</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.FAB.Circle" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
