@@ -54,7 +54,7 @@
             android:id="@+id/login_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="magickkat123"
+            android:text="Arianegrande11"
             android:textSize="16sp"
             android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +75,7 @@
             android:id="@+id/name_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="aboba_67$$6"
+            android:text="44tUH78$2Q1x"
             android:textSize="16sp"
             android:inputType="textPersonName"/>
     </com.google.android.material.textfield.TextInputLayout>

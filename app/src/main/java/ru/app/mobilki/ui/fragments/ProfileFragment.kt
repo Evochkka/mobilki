@@ -10,6 +10,7 @@ import android.widget.TextView
 import ru.app.mobilki.R
 import android.content.Intent
 import ru.app.mobilki.ui.activities.WelcomeActivity
+import ru.app.mobilki.ui.fragments.ChangePasswordFragment
 
 class ProfileFragment : Fragment() {
     override fun onCreateView(
@@ -24,7 +25,7 @@ class ProfileFragment : Fragment() {
         val logoutButton = view.findViewById<Button>(R.id.logout_button)
         changePassword.setOnClickListener {
             (requireActivity() as? androidx.appcompat.app.AppCompatActivity)?.supportFragmentManager?.beginTransaction()?.apply {
-                // replace(R.id.fragment_container, ChangePasswordFragment()) // Раскомментируй, когда добавишь ChangePasswordFragment
+                replace(R.id.fragment_container, ChangePasswordFragment())
                 addToBackStack(null)
                 commit()
             }

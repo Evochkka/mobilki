@@ -13,10 +13,9 @@ import ru.app.mobilki.viewmodel.UserActivityViewModel
 import ru.app.mobilki.data.UserActivity as DbUserActivity
 import ru.app.mobilki.data.Coordinate
 import ru.app.mobilki.ui.adapters.SectionedActivityAdapter
-import ru.app.mobilki.ui.adapters.ActivityListItem
 import ru.app.mobilki.model.UserActivityDisplay
 import ru.app.mobilki.ui.activities.MainScreenActivity
-import ru.app.mobilki.ui.fragments.MyDetailsFragment
+import ru.app.mobilki.ui.adapters.ActivityListItem
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -100,7 +99,7 @@ class MyActivityFragment : Fragment() {
         groupedActivities.forEach { (date, dayActivities) ->
             items.add(ActivityListItem.Section(date))
             dayActivities.forEach { activity ->
-                val duration = (activity.endTime.time - activity.startTime.time) / 60000 // в минутах
+                val duration = (activity.endTime.time - activity.startTime.time) / 60000
                 val distance = calculateDistance(activity.coordinates)
                 items.add(ActivityListItem.ActivityItem(
                     UserActivityDisplay(

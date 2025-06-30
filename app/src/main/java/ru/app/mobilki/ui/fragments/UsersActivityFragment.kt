@@ -11,6 +11,8 @@ import ru.app.mobilki.R
 import ru.app.mobilki.ui.adapters.SectionedActivityAdapter
 import ru.app.mobilki.ui.adapters.ActivityListItem
 import ru.app.mobilki.model.UserActivityDisplay
+import ru.app.mobilki.ui.activities.MainScreenActivity
+import ru.app.mobilki.ui.fragments.UsersDetailsFragment
 
 class UsersActivityFragment : Fragment() {
     override fun onCreateView(
@@ -69,7 +71,7 @@ class UsersActivityFragment : Fragment() {
                 finish = item.finish ?: "",
                 comment = item.comment ?: ""
             )
-            (requireActivity() as? ru.app.mobilki.ui.activities.MainScreenActivity)?.showDetailsFragment(fragment)
+            (requireActivity() as? MainScreenActivity)?.showDetailsFragment(fragment)
         }
     }
 } 
