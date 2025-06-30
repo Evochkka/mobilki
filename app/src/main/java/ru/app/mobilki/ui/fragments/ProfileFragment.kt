@@ -1,4 +1,4 @@
-package ru.app.mobilki
+package ru.app.mobilki.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import ru.app.mobilki.R
 import android.content.Intent
-import ru.app.mobilki.WelcomeActivity
+import ru.app.mobilki.ui.activities.WelcomeActivity
 
 class ProfileFragment : Fragment() {
     override fun onCreateView(

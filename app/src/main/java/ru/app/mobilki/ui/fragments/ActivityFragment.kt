@@ -1,4 +1,4 @@
-package ru.app.mobilki
+package ru.app.mobilki.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import ru.app.mobilki.R
+import ru.app.mobilki.ui.activities.MainScreenActivity
+import ru.app.mobilki.ui.adapters.ActivityPagerAdapter
 
 class ActivityFragment : Fragment() {
     override fun onCreateView(

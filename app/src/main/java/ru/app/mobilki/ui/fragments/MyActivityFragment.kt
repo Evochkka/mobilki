@@ -1,4 +1,4 @@
-package ru.app.mobilki
+package ru.app.mobilki.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import ru.app.mobilki.viewmodel.UserActivityViewModel
 import ru.app.mobilki.data.UserActivity as DbUserActivity
 import ru.app.mobilki.data.Coordinate
-import ru.app.mobilki.SectionedActivityAdapter
-import ru.app.mobilki.ActivityListItem
+import ru.app.mobilki.ui.adapters.SectionedActivityAdapter
+import ru.app.mobilki.ui.adapters.ActivityListItem
 import ru.app.mobilki.model.UserActivityDisplay
+import ru.app.mobilki.ui.activities.MainScreenActivity
+import ru.app.mobilki.ui.fragments.MyDetailsFragment
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -45,7 +47,7 @@ class MyActivityFragment : Fragment() {
                 start = item.start ?: "",
                 finish = item.finish ?: ""
             )
-            (requireActivity() as? ru.app.mobilki.MainScreenActivity)?.showDetailsFragment(fragment)
+            (requireActivity() as? MainScreenActivity)?.showDetailsFragment(fragment)
         }
         viewModel.allActivities.observe(viewLifecycleOwner) { activities ->
             val items = if (activities.isEmpty()) {

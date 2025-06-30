@@ -1,4 +1,4 @@
-package ru.app.mobilki
+package ru.app.mobilki.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.app.mobilki.R
-import ru.app.mobilki.SectionedActivityAdapter
-import ru.app.mobilki.ActivityListItem
+import ru.app.mobilki.ui.adapters.SectionedActivityAdapter
+import ru.app.mobilki.ui.adapters.ActivityListItem
 import ru.app.mobilki.model.UserActivityDisplay
 
 class UsersActivityFragment : Fragment() {

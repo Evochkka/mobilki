@@ -1,4 +1,4 @@
-package ru.app.mobilki
+package ru.app.mobilki.ui.activities
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import ru.app.mobilki.R
+import ru.app.mobilki.ui.fragments.ActivityFragment
+import ru.app.mobilki.ui.fragments.ProfileFragment
+import ru.app.mobilki.ui.fragments.NewActivityFragment
 
 class MainScreenActivity : AppCompatActivity() {
     companion object {

@@ -1,4 +1,4 @@
-package ru.app.mobilki
+package ru.app.mobilki.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

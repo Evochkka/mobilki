@@ -1,4 +1,4 @@
-package ru.app.mobilki
+package ru.app.mobilki.utils
 
 import android.app.Application
 // import ru.app.mobilki.data.AppDatabase // Раскомментируй, когда добавишь AppDatabase
