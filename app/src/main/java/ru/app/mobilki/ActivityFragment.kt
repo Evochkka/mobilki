@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import ru.app.mobilki.ActivityPagerAdapter
-import ru.app.mobilki.R
 
 class ActivityFragment : Fragment() {
     override fun onCreateView(
@@ -28,7 +26,7 @@ class ActivityFragment : Fragment() {
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                (requireActivity() as? ru.app.mobilki.MainScreenActivity)?.onActivityTabChanged(position)
+                (requireActivity() as? MainScreenActivity)?.onActivityTabChanged(position)
             }
         })
         

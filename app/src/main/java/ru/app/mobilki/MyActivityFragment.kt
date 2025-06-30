@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ru.app.mobilki.R
-// import androidx.lifecycle.ViewModelProvider // Раскомментируй, когда добавишь ViewModel
-// import ru.app.mobilki.viewmodel.UserActivityViewModel // Раскомментируй, когда добавишь ViewModel
-// import ru.app.mobilki.data.UserActivity as DbUserActivity // Раскомментируй, когда добавишь модель
-// import ru.app.mobilki.data.Coordinate // Раскомментируй, когда добавишь модель
+import androidx.lifecycle.ViewModelProvider
+import ru.app.mobilki.viewmodel.UserActivityViewModel
+import ru.app.mobilki.data.UserActivity as DbUserActivity
+import ru.app.mobilki.data.Coordinate
 import ru.app.mobilki.SectionedActivityAdapter
 import ru.app.mobilki.ActivityListItem
 import ru.app.mobilki.model.UserActivityDisplay
@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MyActivityFragment : Fragment() {
-    // private lateinit var viewModel: UserActivityViewModel
+    private lateinit var viewModel: UserActivityViewModel
     private lateinit var adapter: SectionedActivityAdapter
 
     override fun onCreateView(
@@ -30,7 +30,7 @@ class MyActivityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*
+        
         viewModel = ViewModelProvider(this)[UserActivityViewModel::class.java]
         val recyclerView = view.findViewById<RecyclerView>(R.id.myActivityRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -55,9 +55,8 @@ class MyActivityFragment : Fragment() {
             }
             adapter.updateItems(items)
         }
-        */
     }
-    /*
+    
     private fun getDefaultItems(): List<ActivityListItem> {
         return listOf(
             ActivityListItem.Section("Вчера"),
@@ -154,5 +153,4 @@ class MyActivityFragment : Fragment() {
             else -> "${mins} мин"
         }
     }
-    */
 } 

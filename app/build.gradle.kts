@@ -42,6 +42,18 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    
+    // Room dependencies - только runtime и ktx
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    
+    // ViewModel and Lifecycle
+    implementation(libs.androidx.viewmodel)
+    implementation(libs.androidx.lifecycle)
+    
+    // Gson for JSON serialization
+    implementation(libs.gson)
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
