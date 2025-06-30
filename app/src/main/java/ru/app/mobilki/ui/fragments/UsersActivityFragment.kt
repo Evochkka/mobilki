@@ -21,7 +21,6 @@ class UsersActivityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*
         val recyclerView = view.findViewById<RecyclerView>(R.id.activityRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val items = listOf(
@@ -70,8 +69,7 @@ class UsersActivityFragment : Fragment() {
                 finish = item.finish ?: "",
                 comment = item.comment ?: ""
             )
-            (requireActivity() as? ru.app.mobilki.MainScreenActivity)?.showDetailsFragment(fragment)
+            (requireActivity() as? ru.app.mobilki.ui.activities.MainScreenActivity)?.showDetailsFragment(fragment)
         }
-        */
     }
 } 

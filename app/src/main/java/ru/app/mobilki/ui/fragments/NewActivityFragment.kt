@@ -13,9 +13,9 @@ import ru.app.mobilki.R
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.FrameLayout
-// import androidx.lifecycle.ViewModelProvider // Раскомментируй, когда добавишь ViewModel
-// import ru.app.mobilki.viewmodel.UserActivityViewModel // Раскомментируй, когда добавишь ViewModel
-// import ru.app.mobilki.data.* // Раскомментируй, когда добавишь модели
+import androidx.lifecycle.ViewModelProvider
+import ru.app.mobilki.viewmodel.UserActivityViewModel
+import ru.app.mobilki.data.*
 import java.util.Date
 import kotlin.random.Random
 import kotlinx.coroutines.CoroutineScope
@@ -29,7 +29,7 @@ class NewActivityFragment : Fragment() {
         ActivityTypeDisplay("Шаг")
     )
     private var selectedType: ActivityTypeDisplay? = null
-    // private lateinit var viewModel: UserActivityViewModel
+    private lateinit var viewModel: UserActivityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -39,7 +39,7 @@ class NewActivityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*
+        
         viewModel = ViewModelProvider(this)[UserActivityViewModel::class.java]
         val container = view.findViewById<FrameLayout>(R.id.bottom_block_container)
         val inflater = LayoutInflater.from(requireContext())
@@ -63,10 +63,10 @@ class NewActivityFragment : Fragment() {
         val startButton = startView.findViewById<Button>(R.id.start_button)
         startButton.setOnClickListener {
             val activityType = when (selectedType?.name) {
-                "Велосипед" -> ru.app.mobilki.data.ActivityType.BICYCLE
-                "Бег" -> ru.app.mobilki.data.ActivityType.RUNNING
-                "Шаг" -> ru.app.mobilki.data.ActivityType.WALKING
-                else -> ru.app.mobilki.data.ActivityType.BICYCLE
+                "Велосипед" -> ActivityType.BICYCLE
+                "Бег" -> ActivityType.RUNNING
+                "Шаг" -> ActivityType.WALKING
+                else -> ActivityType.BICYCLE
             }
             val startTime = Date()
             val endTime = Date(startTime.time + Random.nextLong(300000, 7200000)) // 5-120 минут
@@ -88,12 +88,12 @@ class NewActivityFragment : Fragment() {
                 requireActivity().onBackPressed()
             }
         }
-        */
+        
         view.findViewById<ImageView>(R.id.back_button)?.setOnClickListener {
             requireActivity().onBackPressed()
         }
     }
-    /*
+    
     private fun generateRandomCoordinates(): List<Coordinate> {
         val coordinates = mutableListOf<Coordinate>()
         val baseLat = 43.585472
@@ -105,43 +105,42 @@ class NewActivityFragment : Fragment() {
         }
         return coordinates
     }
-    */
 }
 
 data class ActivityTypeDisplay(val name: String)
 
-//class ActivityTypeAdapter(
-//    private val items: List<ActivityTypeDisplay>,
-//    private val onSelect: (ActivityTypeDisplay) -> Unit
-//) : RecyclerView.Adapter<ActivityTypeViewHolder>() {
-//    private var selected: ActivityTypeDisplay? = null
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityTypeViewHolder {
-//        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_type, parent, false)
-//        return ActivityTypeViewHolder(view)
-//    }
-//    override fun getItemCount() = items.size
-//    override fun onBindViewHolder(holder: ActivityTypeViewHolder, position: Int) {
-//        val item = items[position]
-//        holder.bind(item, item == selected)
-//        holder.itemView.setOnClickListener {
-//            selected = item
-//            notifyDataSetChanged()
-//            onSelect(item)
-//        }
-//    }
-//    fun setSelectedType(type: ActivityTypeDisplay?) {
-//        selected = type
-//        notifyDataSetChanged()
-//    }
-//}
+class ActivityTypeAdapter(
+    private val items: List<ActivityTypeDisplay>,
+    private val onSelect: (ActivityTypeDisplay) -> Unit
+) : RecyclerView.Adapter<ActivityTypeViewHolder>() {
+    private var selected: ActivityTypeDisplay? = null
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActivityTypeViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_type, parent, false)
+        return ActivityTypeViewHolder(view)
+    }
+    override fun getItemCount() = items.size
+    override fun onBindViewHolder(holder: ActivityTypeViewHolder, position: Int) {
+        val item = items[position]
+        holder.bind(item, item == selected)
+        holder.itemView.setOnClickListener {
+            selected = item
+            notifyDataSetChanged()
+            onSelect(item)
+        }
+    }
+    fun setSelectedType(type: ActivityTypeDisplay?) {
+        selected = type
+        notifyDataSetChanged()
+    }
+}
 
-//class ActivityTypeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-//    private val icon: ImageView = view.findViewById(R.id.type_icon)
-//    private val name: TextView = view.findViewById(R.id.type_name)
-//    fun bind(type: ActivityTypeDisplay, selected: Boolean) {
-//        icon.setImageResource(R.drawable.pic)
-//        name.text = type.name
-//        val bgRes = if (selected) R.drawable.bg_activity_type_item_selected else R.drawable.bg_activity_type_item
-//        itemView.setBackgroundResource(bgRes)
-//    }
-//}
+class ActivityTypeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    private val icon: ImageView = view.findViewById(R.id.type_icon)
+    private val name: TextView = view.findViewById(R.id.type_name)
+    fun bind(type: ActivityTypeDisplay, selected: Boolean) {
+        icon.setImageResource(R.drawable.pic)
+        name.text = type.name
+        val bgRes = if (selected) R.drawable.bg_activity_type_item_selected else R.drawable.bg_activity_type_item
+        itemView.setBackgroundResource(bgRes)
+    }
+}
