@@ -21,11 +21,11 @@ class Login : AppCompatActivity() {
         findViewById<android.widget.ImageView>(R.id.back_button2).setOnClickListener {
             finish()
         }
-//        findViewById<com.google.android.material.button.MaterialButton>(R.id.login_btn).setOnClickListener {
-//            val intent = Intent(this, MainScreenActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.login_btn).setOnClickListener {
+            val intent = Intent(this, MainScreenActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         val rootView = findViewById<android.view.View>(R.id.main)
         val spacer = findViewById<android.view.View>(R.id.keyboardSpacer)
         rootView.viewTreeObserver.addOnGlobalLayoutListener {

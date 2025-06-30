@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
+import ru.app.mobilki.R
 
 class Registration : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +21,10 @@ class Registration : AppCompatActivity() {
         findViewById<android.widget.ImageView>(R.id.back_button).setOnClickListener {
             finish()
         }
-//        findViewById<com.google.android.material.button.MaterialButton>(R.id.reg_btn).setOnClickListener {
-//            val intent = Intent(this, MainScreenActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
+        findViewById<com.google.android.material.button.MaterialButton>(R.id.reg_btn).setOnClickListener {
+            val intent = Intent(this, MainScreenActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 } 
